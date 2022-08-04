@@ -23,6 +23,8 @@ public class ProductPage extends MyBase{
     
     @FindBy (xpath ="//span[contains(text(),'Search Results')]")
     WebElement serachresult;
+    
+    
 
     public ProductPage() {
         PageFactory.initElements(driver, this);
