@@ -14,27 +14,18 @@ import org.openqa.selenium.support.PageFactory;
  *
  * @author virad
  */
-public class SearchPage extends MyBase {
+public class CustomerService extends MyBase{
     
-    @FindBy(id="search-field")
-    WebElement search;
+    @FindBy(xpath = "//div[@id='leftNavItem']")
+    WebElement myorder;
     
-     public SearchPage(){
+     public CustomerService(){
         PageFactory.initElements(driver, this);
     }
      
-     public ProductPage validateSearch(){
-         search.sendKeys("1774646 ");
-         search.click();
-         search.submit();
-         return new ProductPage();
+     public void clickOnMyOrder(){
+         myorder.click();
          
+     }
     
 }
-
-
- 
-
-}
-
-

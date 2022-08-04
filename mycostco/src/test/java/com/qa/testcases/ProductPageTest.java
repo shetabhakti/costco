@@ -5,9 +5,12 @@
 package com.qa.testcases;
 
 import com.qa.base.MyBase;
+import static com.qa.base.MyBase.initialization;
 import com.qa.pages.CartPage;
 import com.qa.pages.CustomerService;
 import com.qa.pages.HomePage;
+import com.qa.pages.ProductPage;
+import com.qa.pages.SearchPage;
 import com.qa.util.TestUtil;
 import org.testng.Assert;
 import static org.testng.Assert.*;
@@ -21,16 +24,21 @@ import org.testng.annotations.Test;
  *
  * @author virad
  */
-public class HomePageTest extends MyBase {
-
+public class ProductPageTest extends MyBase{
     HomePage hp;
-    CartPage cp;
-    CustomerService cs;
+    SearchPage sp;
+    
     TestUtil tu;
-
-    public HomePageTest() {
-        super();
+    ProductPage pp;
+    
+    public ProductPageTest() {
     }
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -44,52 +52,31 @@ public class HomePageTest extends MyBase {
     public void setUpMethod() throws Exception {
         initialization();
         hp = new HomePage();
-        cp = new CartPage();
-        cs = new CustomerService();
-        tu = new TestUtil();
-
+        sp = new SearchPage();
+        sp.validateSearch();
+        
+        pp = new ProductPage();
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
         driver.quit();
     }
-
-    @Test(priority =1)
-    public void validateHomePageTitle() {
-        String Title = hp.validateHomePageTitle();
-        Assert.assertEquals(Title, "Welcome to Costco Wholesale");
-
-    }
-
+    
     @Test(priority = 2)
-    public void validateLogo() {
-        boolean logo = hp.validateLogo();
-        Assert.assertFalse(logo);
-    }
-
-    @Test (priority = 3)
-
-    public void clickOnCartLinkTest() {
-       cp = hp.clickOnCartLink();
-      
-
-    }
-
-    @Test
-
-    public void clickOnCustomerServiceTest() {
-       cs = hp.clickOnCustomerService();
-
+    public void validateProductPageTitleTest(){
+       String Title = pp.validateProductPageTitle();
+        Assert.assertEquals(Title, "Welcome to Costco Wholesale");        
     }
     
-        
-    @Test
-    
-    public void  validateFeedbackTest(){
-        Assert.assertTrue(hp.validateFeedBack());
-       
-     
+    @Test(priority = 1)
+    public void addProductTest(){
+       Assert.assertTrue(pp.addProduct()); 
     }
-
+    
+    @Test
+    public void checkSearchResultTest(){
+        Assert.assertTrue(pp.checkSearchResult());
+    }
+    
 }

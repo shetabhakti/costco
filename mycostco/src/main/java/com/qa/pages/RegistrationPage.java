@@ -4,10 +4,8 @@
  */
 package com.qa.pages;
 
-/**
- *
- * @author virad
- */
+
+
 public class RegistrationPage {
     
 }

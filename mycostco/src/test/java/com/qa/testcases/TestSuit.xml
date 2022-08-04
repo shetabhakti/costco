@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="costco.com automation test suit">  
+
+    <test name="costco website testcases">
+        <classes>
+            <class name = "com.qa.testcases.CartPageTest"></class>
+             <class name = "com.qa.testcases.CustomerServiceTest"></class>
+              <class name = "com.qa.testcases.HomePageTest"></class>
+               <class name = "com.qa.testcases.LoginPageTest"></class>
+                <class name = "com.qa.testcases.ProductPageTest"></class>
+                 <class name = "com.qa.testcases.SearchTest"></class>
+            
+        </classes>
+        
+    </test>
+
+</suite>

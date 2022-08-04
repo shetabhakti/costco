@@ -15,12 +15,16 @@ import org.testng.annotations.BeforeMethod;
  *
  * @author virad
  */
-public class CartPageTest extends MyBase{
+public class LoginPageTest extends MyBase{
     
-    public CartPageTest() {
+    public LoginPageTest() {
     }
 
-
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -32,7 +36,6 @@ public class CartPageTest extends MyBase{
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        
     }
 
     @AfterMethod

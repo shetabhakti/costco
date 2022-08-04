@@ -5,25 +5,32 @@
 package com.qa.testcases;
 
 import com.qa.base.MyBase;
+import com.qa.pages.CustomerService;
+import com.qa.pages.HomePage;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author virad
  */
-public class CartPageTest extends MyBase{
+public class CustomerServiceTest extends MyBase{
+    CustomerService cs;
     
-    public CartPageTest() {
+    
+    public CustomerServiceTest() {
+        super();
     }
 
-
+    
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+         
     }
 
     @AfterClass
@@ -32,10 +39,20 @@ public class CartPageTest extends MyBase{
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        
+        initialization();
+         //hp = new HomePage();
+         cs = new CustomerService();
+         
+         
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+    }
+    
+    @Test
+    
+    public void clickOnMyOrderTest(){
+        cs.clickOnMyOrder();
     }
 }

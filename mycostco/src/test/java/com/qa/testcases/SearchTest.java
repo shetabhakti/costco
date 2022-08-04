@@ -5,18 +5,22 @@
 package com.qa.testcases;
 
 import com.qa.base.MyBase;
+import com.qa.pages.ProductPage;
+import com.qa.pages.SearchPage;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author virad
  */
 public class SearchTest extends MyBase {
-     SearchTest st; 
+     
+     SearchPage sp;
     
     public SearchTest() {
         super();
@@ -35,11 +39,24 @@ public class SearchTest extends MyBase {
     @BeforeMethod
     public void setUpMethod() throws Exception {
         initialization();
-        SearchTest st = new SearchTest();
+        sp = new SearchPage();
+        
+        
                 
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
     }
+    
+    @Test
+    public void validateSearchTest(){
+        sp.validateSearch();
+        
+    }
+  
+    
+    
+    
+    
 }
