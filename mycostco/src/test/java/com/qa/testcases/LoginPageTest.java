@@ -5,26 +5,29 @@
 package com.qa.testcases;
 
 import com.qa.base.MyBase;
+import com.qa.pages.HomePage;
+import com.qa.pages.LoginPage;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author virad
  */
 public class LoginPageTest extends MyBase{
+    LoginPage lp;
+    HomePage hp;
+    
     
     public LoginPageTest() {
+        super();
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+  
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -36,9 +39,22 @@ public class LoginPageTest extends MyBase{
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
+        initialization();
+        lp = new LoginPage();
+        hp = new HomePage();
+        hp.clickOnSignIn();
+        
+        
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+        driver.quit();
+    }
+    
+    //@Test
+    public void checkingTextVisiblityTest(){
+        lp.checkingTestVisiblity();
+        
     }
 }

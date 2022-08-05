@@ -19,48 +19,36 @@ import org.testng.annotations.Test;
  *
  * @author virad
  */
-public class CustomerServiceTest extends MyBase{
-    CustomerService cs;
+public class CustomerServiceTest extends MyBase {
+
     HomePage hp;
-    
-    
+    CustomerService cs;
+
     public CustomerServiceTest() {
         super();
     }
 
-    
-
     @BeforeClass
-    public static void setUpClass() throws Exception {
-         
+    public void setUpClass() throws Exception {
+        initialization();
+        hp = new HomePage();
+        cs = new CustomerService();
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
+        driver.quit();
     }
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        initialization();
-         hp = new HomePage();
-       cs=  hp.clickOnCustomerService();
-         cs = new CustomerService();
-         
-         
-         
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-        driver.quit();
     }
-    
-//    @Test
-//    
-//    public void clickOnMyOrderTest(){
-//        cs.clickOnMyOrder();
-//    }
-     @Test(priority=0)
+
+    @Test(priority=0)
     public void clickonCustomerServiceTest() throws InterruptedException {
         cs.clickonCustomerService();
     }
@@ -72,7 +60,8 @@ public class CustomerServiceTest extends MyBase{
 
     @Test(priority=2)
     public void clickonChatUsTest() throws InterruptedException {
-        cs.clickonChatUs();
+        Assert.assertTrue(cs.clickonChatUs());
+        Thread.sleep(3000);
     }
   
 //    @Test (priority=3)
@@ -83,10 +72,4 @@ public class CustomerServiceTest extends MyBase{
     public void clickOnMyorderTest() throws InterruptedException {
         cs.clickOnMyOrder();
     }
-    
-    @Test    (priority = 5)
-    public void checkSearchConsoleTest(){
-       Assert.assertTrue(cs.checkSearchConsole());
-    }
-
 }

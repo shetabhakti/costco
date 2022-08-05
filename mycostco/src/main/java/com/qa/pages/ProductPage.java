@@ -43,7 +43,7 @@ public class ProductPage extends MyBase{
                 }    
     
    public boolean checkSearchResult(){
-       return serachresult.isDisplayed();
+       return serachresult.isEnabled();
    }
    
    

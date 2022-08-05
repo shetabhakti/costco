@@ -15,19 +15,15 @@ import org.openqa.selenium.support.PageFactory;
  *
  * @author virad
  */
-public class CustomerService extends MyBase{
-    
-//    @FindBy(xpath = "//div[@id='leftNavItem']")
-//    WebElement myorder;
-    
-    
+public class CustomerService extends MyBase {
+
     @FindBy(xpath = "//a[@id='customer-service-link']")
     WebElement customerservice;
 
     @FindBy(xpath = "//p[contains(text(),'My Orders')]")
     WebElement myorder;
 
-    @FindBy(xpath = "//*[@id=\"chatInlay\"]/div[1]/div[3]/div[3]/oj-button/button")
+    @FindBy(xpath = "//iframe[@id='chatInlay']")
     WebElement chatus;
 
 //    @FindBy(xpath = "//*[@id=\"leftNavWrapper\"]/a[3]/div/")
@@ -35,47 +31,32 @@ public class CustomerService extends MyBase{
 
     @FindBy(xpath = "//p[contains(text(),'In-Home Delivery FAQ')]")
     WebElement inhomedelivery;
-    
-    
-    
-    
-    
-     public CustomerService(){
+
+    public CustomerService() {
+
         PageFactory.initElements(driver, this);
     }
-     
-//     public void clickOnMyOrder(){
-//         myorder.click();
-//         
-//     }
-     public void clickonCustomerService() throws InterruptedException {
-        customerservice.click();
-        Thread.sleep(5000);
+
+    public void clickonCustomerService() throws InterruptedException {
+          customerservice.click();
+        
     }
 
     public void clickOnMyOrder() throws InterruptedException {
         myorder.click();
-       Thread.sleep(5000);
+       
 
     }
-    public void clickonChatUs() throws InterruptedException {
-        chatus.click();
-       Thread.sleep(5000);
+    public boolean clickonChatUs() throws InterruptedException {
+        return chatus.isEnabled();
+       
     }
 
     public void clickoninHomeDelivery() throws InterruptedException {
         inhomedelivery.click();
-      Thread.sleep(5000);
-    }
-    
-    
-    public boolean checkSearchConsole(){
-        WebElement search = driver.findElement(By.id("//div[@class='searchContainer']"));
-       return  search.isDisplayed();
+      
     }
 //    public void clickonReplaceItem() {
 //        replaceitem.click();
 //    }
 }
-    
-

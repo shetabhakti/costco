@@ -20,6 +20,7 @@ public class HomePage extends MyBase{
  //Page Factory = obeject Repository 
     
     Actions action = new Actions(driver);
+    
     @FindBy(id ="header_sign_in")
     WebElement signIn;
     
@@ -69,6 +70,11 @@ public class HomePage extends MyBase{
     public boolean validateFeedBack(){
         
         return feedback.isDisplayed();
+    }
+    
+    public LoginPage clickOnSignIn(){
+        signIn.click();
+        return new LoginPage();
     }
 
 }
